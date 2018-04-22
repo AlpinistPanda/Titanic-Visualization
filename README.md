@@ -31,7 +31,7 @@ At this stage I had my first working example with pictograms representing the pa
 ### 3rd feedback
 
 3rd feedback was more about design aspects such as the colors of the icons, the labels and borders. We worked with a mockup and I revised the design to finalise.
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Design](https://github.com/AlpinistPanda/Titanic-Visualization/blob/master/Design.png)
 
 ## Resources
 

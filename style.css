@@ -10,3 +10,7 @@ height: auto;
 pointer-events: none;
 background-color: white;
 }
+
+body {
+  background-color: #fff1e0;
+}

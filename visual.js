@@ -13,14 +13,16 @@ function draw(data) {
     width = 1400 - margin,
     height = 800 - margin;
 
-  d3
-    .select("body")
+// Header
+  d3.select("body")
     .append("h2")
     .text("Tragedy at Titanic");
 
+// Human pictogram
   var icon =
     "M3.5,2H2.7C3,1.8,3.3,1.5,3.3,1.1c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1c0,0.4,0.2,0.7,0.6,0.9H1.1C0.7,2,0.4,2.3,0.4,2.6v1.9c0,0.3,0.3,0.6,0.6,0.6h0.2c0,0,0,0.1,0,0.1v1.9c0,0.3,0.2,0.6,0.3,0.6h1.3c0.2,0,0.3-0.3,0.3-0.6V5.3c0,0,0-0.1,0-0.1h0.2c0.3,0,0.6-0.3,0.6-0.6V2.6C4.1,2.3,3.8,2,3.5,2z";
 
+// Main svg
   var svg = d3
     .select("body")
     .append("svg")
@@ -29,6 +31,7 @@ function draw(data) {
     .append("g")
     .attr("class", "chart");
 
+// tooltip element
   var tooltip = d3
     .select("body")
     .append("div")
@@ -56,6 +59,7 @@ function draw(data) {
       .duration(200) // ms
       .style("opacity", 0.9); // started as 0!
   };
+
   // tooltip mouseout event handler
   var tipMouseout = function(d) {
     tooltip
@@ -77,6 +81,7 @@ function draw(data) {
   var thirdClassMaleSurvived = 0;
   var thirdClassMaleDead = 0;
 
+// sorting of the different classes
   d3.selectAll("path")
     .attr("transform", function(d) {
       if (d.Pclass == 1) {
@@ -264,18 +269,26 @@ function draw(data) {
       }
     })
     .attr("fill", function(d) {
-      // paint it red if female
+      // paint it pink if female
       if (d.Sex === "female") {
-        return "red";
+        return "#bb6d82";
       } else {
-        return "blue";
+        return "#6aa0f7";
       }
     })
     .on("mouseover", tipMouseover)
     .on("mouseout", tipMouseout);
 
-  // First class
-  //
+    /**
+     * Create the labels for the classes
+     * @param {int} xVal x parameter
+     * @param {int} yVal y parameter
+     * @param {string} text1 Class text
+     * @param {string} text2 number of passengers
+     *
+     *
+     */
+
   function classes(xVal, yVal, text1, text2) {
     d3.select("svg")
       .append("text")
@@ -297,6 +310,14 @@ function draw(data) {
       .style("font-family", "Helvetica")
       .text(text2);
   }
+
+  /**
+   * Writes the number of passengers
+   * @param {int} xVal x parameter
+   * @param {int} yVal y parameter
+   * @param {string} text Number of passengers
+   *
+   */
 
   function numbers(xVal, yVal, text) {
     d3.select("svg")
@@ -321,8 +342,8 @@ function draw(data) {
   numbers(1375, 350, secondClassMaleDead);
 
   numbers(725, 470, thirdClassFemaleSurvived);
-  numbers(725, 540, thirdClassFemaleDead);
-  numbers(1375, 470, thirdClassMaleSurvived);
+  numbers(725, 540, thirdClassMaleSurvived);
+  numbers(1375, 470, thirdClassFemaleDead);
   numbers(1368, 540, thirdClassMaleDead);
 
   d3
@@ -412,7 +433,7 @@ function draw(data) {
   d3
     .select("svg")
     .append("text")
-    .attr("x", 1000)
+    .attr("x", 1100)
     .attr("y", 20)
     .attr("dy", ".55em")
     .style("font-weight", "bold")

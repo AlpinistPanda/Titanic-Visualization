@@ -22,6 +22,7 @@ The project required me to get feedback of at least 3 people.
 1st feedback was in the initial stage when I was still doing sketches and deciding on how to represent the data. I was planning to represent the passenger with some rectangles, every passenger would be represented with a small rectangle. And also my initial decision was to give different colors to every class to differentiate each class.
 
 The feedback was to find a better way to represent passengers so I decided to find a vector that looks like a human shape. I found a human pictogram online and decided to use it. Also I got rid of the colors to simplify the visualization. But only used colors to show the genders for the passengers.
+![Design](https://github.com/AlpinistPanda/Titanic-Visualization/blob/master/chart.png)
 
 
 ### 2nd feedback
